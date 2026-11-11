@@ -15,3 +15,5 @@
 .vs/
 .idea/
 .DS_Store
+HoopShooter.app/
+*_BackUpThisFolder_ButDontShipItWithYourGame/
