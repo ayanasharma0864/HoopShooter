@@ -4526,7 +4526,7 @@ MonoBehaviour:
   audioSource: {fileID: 2011309041}
   swishClip: {fileID: 8300000, guid: 3739f975adab74c84bd6c9da118ef19a, type: 3}
   buzzerClip: {fileID: 8300000, guid: 32ea7c09d278a4498913d0c6f42c0ba3, type: 3}
-  scoreEffect: {fileID: 0}
+  scoreEffect: {fileID: 727830832}
 --- !u!4 &2011309040
 Transform:
   m_ObjectHideFlags: 0
