@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip swishClip;
     public AudioClip buzzerClip;
+    public ParticleSystem scoreEffect;
 
     int score;
     float topTime = -10f;
@@ -64,6 +65,8 @@ public class ScoreManager : MonoBehaviour
             topTime = -10f;
             if (swishClip != null && audioSource != null)
                 audioSource.PlayOneShot(swishClip);
+            if (scoreEffect != null)
+                scoreEffect.Play();
         }
     }
 
