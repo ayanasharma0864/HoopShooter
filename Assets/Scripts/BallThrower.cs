@@ -5,20 +5,18 @@ public class BallThrower : MonoBehaviour
     public float moveSpeed = 4f;
     public float xLimit = 5f;
     public float minPower = 8f;
-    public float maxPower = 20f;
-    public float chargeSpeed = 10f;
-    public float upward = 0.6f;
+    public float maxPower = 14f;
+    public float chargeSpeed = 4f;
+    public float upward = 1.2f;
     public float respawnDelay = 3f;
 
     Rigidbody rb;
-    Vector3 startPos;
     float power;
     bool thrown;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        startPos = transform.position;
         ResetBall();
     }
 
@@ -55,7 +53,8 @@ public class BallThrower : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
         rb.isKinematic = true;
-        transform.position = new Vector3(transform.position.x, startPos.y, startPos.z);
+        transform.position = new Vector3(0f, 1.2f, 0f);
+        transform.rotation = Quaternion.identity;
         thrown = false;
         power = minPower;
     }
