@@ -9,14 +9,17 @@ public class BallThrower : MonoBehaviour
     public float chargeSpeed = 4f;
     public float upward = 1.2f;
     public float respawnDelay = 3f;
+    public AudioClip bounceClip;
 
     Rigidbody rb;
+    AudioSource audioSource;
     float power;
     bool thrown;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         ResetBall();
     }
 
@@ -57,5 +60,11 @@ public class BallThrower : MonoBehaviour
         transform.rotation = Quaternion.identity;
         thrown = false;
         power = minPower;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (bounceClip != null && audioSource != null && collision.relativeVelocity.magnitude > 1f)
+            audioSource.PlayOneShot(bounceClip);
     }
 }

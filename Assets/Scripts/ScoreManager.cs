@@ -10,6 +10,10 @@ public class ScoreManager : MonoBehaviour
     public float gameTime = 60f;
     public float maxGap = 1f;
 
+    public AudioSource audioSource;
+    public AudioClip swishClip;
+    public AudioClip buzzerClip;
+
     int score;
     float topTime = -10f;
     float timeLeft;
@@ -36,6 +40,8 @@ public class ScoreManager : MonoBehaviour
         {
             timeLeft = 0f;
             gameOver = true;
+            if (buzzerClip != null && audioSource != null)
+                audioSource.PlayOneShot(buzzerClip);
             messageText.text = "TIME UP!\nFinal Score: " + score + "\nPress R to restart";
         }
         UpdateText();
@@ -56,6 +62,8 @@ public class ScoreManager : MonoBehaviour
         {
             score++;
             topTime = -10f;
+            if (swishClip != null && audioSource != null)
+                audioSource.PlayOneShot(swishClip);
         }
     }
 
